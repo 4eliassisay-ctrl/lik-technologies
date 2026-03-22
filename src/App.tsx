@@ -50,9 +50,9 @@ export default function App() {
   /* ================= FETCH POSTS ================= */
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/posts?page=${page}&limit=${LIMIT}`)
+    fetch(`${import.meta.env.VITE_API_URL}/posts?`)
       .then((res) => res.json())
-      .then((data: Post[]) => {
+      .then((data: Post[]) => { 
         if (data.length < LIMIT) setHasMore(false);
         setPosts((prev) => [...prev, ...data]);
       })
@@ -102,8 +102,6 @@ export default function App() {
       }}
     >
       {/* ================= HEADER ================= */}
-     <Header dark={dark} toggleDark={() => setDark(!dark)} />
-     <Hero />
       {/* ================= POSTS ================= */}
       <main
         style={{
@@ -228,3 +226,4 @@ const closeBtn = {
   color: "#fff",
   cursor: "pointer",
 };
+console.log("API:", import.meta.env.VITE_API_URL);

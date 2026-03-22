@@ -21,7 +21,7 @@ export default function FloatingTelegramButton({ dark }: { dark: boolean }) {
       style={{
         position: "fixed",
         right: 20,
-        bottom: 50,
+        bottom: 0,
         zIndex: 999,
         width: 56,
         height: 56,
